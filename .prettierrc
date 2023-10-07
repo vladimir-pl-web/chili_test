@@ -29,6 +29,16 @@
    "options": {
     "parser": "json"
    }
+  },
+  {
+   "files": [
+    "*.css",
+    "*.scss",
+    "*.sass"
+   ],
+   "options": {
+    "parser": "scss"
+   }
   }
  ]
 }

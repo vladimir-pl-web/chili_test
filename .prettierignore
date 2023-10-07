@@ -1,2 +1,5 @@
 /**/*.d.ts
 node_modules/
+.eslintrc
+.prettierrc
+README.md

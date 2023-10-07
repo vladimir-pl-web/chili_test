@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check ts config standarts
+npm run check-types ||
+(echo 'Failed Type check
+Are you seriously? 😱😡 Make the changes required above.'
+false;
+)
+
+# Check eslint standarts
+npm run lint ||
+(echo '👎 Get that weak thinks out of here! 👎 👎
+Eslint check filed: Fix all the linting errors showing above'
+false;
+)
+# Check prettier standarts
+npm run prettier ||
+(echo 'Your styling looks disgusting 🥺😢
+Prettier check filed: Fix the errow showing in the console'
+false;
+)
+
+# If everything passes try to run a build
+ npm run build || 
+(echo "Oh, I can't build this 😡 😡 🥺. Build is filed: View the errors above to see why
+")
+
+# If it biulds we can commit
+echo '👍You win this time... I am commiting this now👍'
