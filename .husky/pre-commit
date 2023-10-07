@@ -27,4 +27,4 @@ false;
 ")
 
 # If it biulds we can commit
-echo '👍You win this time... I am commiting this now👍'
+echo '👍 You win this time... I am commiting this now 👍'
