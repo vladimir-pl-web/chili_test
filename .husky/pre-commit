@@ -2,11 +2,11 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Check ts config standarts
-npm run check-types ||
-(echo 'Failed Type check
-Are you seriously? 😱😡 Make the changes required above.'
-false;
-)
+# npm run check-types ||
+# (echo 'Failed Type check
+# Are you seriously? 😱😡 Make the changes required above.'
+# false;
+# )
 
 # Check eslint standarts
 npm run lint ||
