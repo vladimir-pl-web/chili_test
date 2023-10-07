@@ -1,9 +1,7 @@
-import { FC } from "react"
+import { FC } from "react";
 
 const Search: FC = () => {
- return (
-  <input />
- )
-}
+  return <input />;
+};
 
-export default Search
+export default Search;

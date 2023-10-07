@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FC } from "react";
 import { IProducts } from "./types";
 import { useQuery } from "@tanstack/react-query";
@@ -9,14 +9,12 @@ const ProductsList: FC<IProducts> = ({ products }) => {
     ["get product"],
     () => Products.getProducts(),
     {
-     initialData: products,
-     enabled:false
+      initialData: products,
+      enabled: false,
     }
   );
-console.log(data, isFetching, isSuccess, isError,"ffffffff")
- return (
-  <div>Product</div>
- )
-}
+  console.log(data, isFetching, isSuccess, isError, "ffffffff");
+  return <div>Product</div>;
+};
 
-export default ProductsList
+export default ProductsList;

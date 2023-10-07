@@ -1,8 +1,5 @@
+const Filtered = () => {
+  return <div>Filtered</div>;
+};
 
-const Filtered = ()=> {
- return (
-  <div>Filtered</div>
- )
-}
-
-export default Filtered
+export default Filtered;
