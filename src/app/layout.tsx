@@ -18,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <TanstackProvider>{children}</TanstackProvider>
-      </body>
+      <body className={inter.className} suppressHydrationWarning={true}>
+      <TanstackProvider>
+        {children}
+        </TanstackProvider>
+         </body>
     </html>
   );
 }

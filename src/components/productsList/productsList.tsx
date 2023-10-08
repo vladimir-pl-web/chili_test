@@ -2,18 +2,21 @@
 import { FC } from "react";
 import { IProducts } from "./types";
 import { useQuery } from "@tanstack/react-query";
-import Products from "src/api/services";
+import { getProducts } from "src/app/products/page";
 
 const ProductsList: FC<IProducts> = ({ products }) => {
-  const { data, isFetching, refetch, isSuccess, isError } = useQuery(
-    ["get product"],
-    () => Products.getProducts(),
+
+  const { data, isFetching, isLoading, refetch, isSuccess, isError } = useQuery(
+    ["get products"],
+    () => getProducts(),
     {
-      initialData: products,
-      enabled: false,
+      select: ((data) => data),
+      initialData: products ,
+      enabled: true,
+      staleTime: Infinity
     }
   );
-  console.log(data, isFetching, isSuccess, isError, "ffffffff");
+console.log(isLoading, isFetching, "datalist")
   return <div>Product</div>;
 };
 

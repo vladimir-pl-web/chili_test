@@ -1,14 +1,15 @@
 import { IProduct } from "src/types/products";
 import { instance } from "./api";
 import { Endpoints } from "./endpoints";
+import { AxiosResponse } from "axios";
 
 class ProductServices {
-  async getProducts() {
-    const products = await instance<IProduct[], unknown>({
+  async getProducts():Promise<AxiosResponse<{products:IProduct[]}>> {
+    const data= await instance({
       url: `${Endpoints.Products}`,
       method: "GET",
     });
-    return products;
+    return data.data.products;
   }
 }
 

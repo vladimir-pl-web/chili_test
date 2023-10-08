@@ -1,10 +1,9 @@
-import Filtered from "src/components/filtered/filtered";
+import Filtered from '../../../components/filteredList/list'
 
-const FilteredProductsPage = () => {
+export default async function FilteredProductsPage() {
   return (
-    <>
+    <div>
       <Filtered />
-    </>
+    </div>
   );
-};
-export default FilteredProductsPage;
+}

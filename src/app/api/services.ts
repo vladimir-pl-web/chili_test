@@ -8,7 +8,7 @@ class ProductServices {
       url: `${Endpoints.Products}`,
       method: "GET",
     });
-    return response.data;
+    return response.data
   }
 }
 
