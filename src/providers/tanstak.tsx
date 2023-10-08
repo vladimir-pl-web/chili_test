@@ -7,19 +7,23 @@ import { Provider } from "react-redux";
 import store from "src/store/store";
 
 const TanstackProvider = ({ children }: { children: ReactNode }) => {
-  const [queryClient] = useState(() => new QueryClient({
-    defaultOptions: {
-    queries: {
-      staleTime: Infinity,
-      refetchOnWindowFocus: false
-    },
-  },}));
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: Infinity,
+            refetchOnWindowFocus: false,
+          },
+        },
+      })
+  );
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-      {children}
+        {children}
         <ReactQueryDevtools initialIsOpen={false} />
-        </Provider>
+      </Provider>
     </QueryClientProvider>
   );
 };

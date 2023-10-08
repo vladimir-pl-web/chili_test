@@ -8,12 +8,12 @@ export interface IProduct {
 }
 
 export interface IInitialState {
-  searchTerm: string,
-  page: number,
-  total: number
+  searchTerm: string;
+  page: number;
+  total: number;
 }
 
-export type IPage = Pick<IInitialState, "page">
-export type ITotal = Pick<IInitialState, "total">
-export type ISearch =Pick<IInitialState, "searchTerm">
+export type IPage = Pick<IInitialState, "page">;
+export type ITotal = Pick<IInitialState, "total">;
+export type ISearch = Pick<IInitialState, "searchTerm">;
 export type IProductListItem = Pick<IProduct, "name" | "price" | "category">;

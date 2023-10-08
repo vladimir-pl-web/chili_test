@@ -4,11 +4,11 @@ import { Endpoints } from "../../api/endpoints";
 
 class ProductServices {
   async getProducts() {
-    const response = await instance<{ products: IProduct[] }>({
+    const response = await instance<{ products: IProduct[] }, any>({
       url: `${Endpoints.Products}`,
       method: "GET",
     });
-    return response.data
+    return response.data;
   }
 }
 

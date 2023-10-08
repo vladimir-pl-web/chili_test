@@ -5,7 +5,7 @@ import { IProductPage } from "./types";
 import { IProduct } from "src/types/products";
 
 export async function generateStaticParams() {
-  const products = await getProducts() as IProduct[];
+  const products = (await getProducts()) as IProduct[];
   return products.map((product) => ({ id: String(product.id) }));
 }
 
