@@ -1,5 +1,12 @@
 import type { Config } from "tailwindcss";
-
+const colors = {
+  "green-primary": "#61B15A",
+  "green-dark": "#224B0C",
+  "green-secondary": "#ADCE74",
+  "yellow-light": "#FFF76A",
+  "light-brown": "#FFCE89",
+  "button-text": "#AC4425",
+};
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +20,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors,
+    },
+    fontFamily: {
+      humanist: ["humanist", "sans-serif"],
+      didot: ["didot", "serif"],
     },
   },
   plugins: [],
