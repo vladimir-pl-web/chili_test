@@ -8,8 +8,9 @@ export interface IProduct {
 }
 
 export interface IInitialState {
-  searchTerm: string;
+  searchTerm: string | null;
   page: number;
+  itemsPerPage: number;
   total: number;
 }
 
