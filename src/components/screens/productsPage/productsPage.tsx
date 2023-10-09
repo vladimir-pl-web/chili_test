@@ -1,27 +1,24 @@
 "use client";
 import { FC } from "react";
 import Header from "src/components/header/header";
+import Pagination from "src/components/pagination/pagination";
 import ProductsList from "src/components/productsList/productsList";
 import { useProducts } from "src/hooks/useProducts";
 import tw from "tailwind-styled-components";
 
 const ProductsPage: FC = () => {
-  const {
-    setPage,
-    setTerm,
-    setTotal,
-    page,
-    total,
-    searchTerm,
-    filtered,
-    currentProduct,
-  } = useProducts();
+  const { setPage, page, total, itemsPerPage, filtered } = useProducts();
 
-  console.log(filtered, page, total, "filtered");
+  console.log(page, total, "filtered");
   return (
     <StyledProducts>
       <Header />
       <ProductsList products={filtered} />
+      <Pagination
+        page={page}
+        onChange={setPage}
+        paginationLength={total / itemsPerPage}
+      />
     </StyledProducts>
   );
 };

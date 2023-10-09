@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IInitialState, IPage, ISearch, ITotal } from "src/types/products";
 
 const initialState: IInitialState = {
-  page: 1,
+  page: 0,
   itemsPerPage: 6,
   searchTerm: null,
   total: 0,
