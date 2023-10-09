@@ -1,8 +1,13 @@
 import { FC } from "react";
 import tw from "tailwind-styled-components";
+import Search from "../search/search";
 
 const Header: FC = () => {
-  return <StyledHeader>I am header</StyledHeader>;
+  return (
+    <StyledHeader>
+      <Search />
+    </StyledHeader>
+  );
 };
 
 const StyledHeader = tw.header`

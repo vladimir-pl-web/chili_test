@@ -8,17 +8,19 @@ import tw from "tailwind-styled-components";
 
 const ProductsPage: FC = () => {
   const { setPage, page, total, itemsPerPage, filtered } = useProducts();
-
-  console.log(page, total, "filtered");
+  const isPagination = total > filtered.length;
   return (
     <StyledProducts>
       <Header />
       <ProductsList products={filtered} />
-      <Pagination
-        page={page}
-        onChange={setPage}
-        paginationLength={total / itemsPerPage}
-      />
+
+      {isPagination && (
+        <Pagination
+          page={page}
+          onChange={setPage}
+          paginationLength={total / itemsPerPage}
+        />
+      )}
     </StyledProducts>
   );
 };

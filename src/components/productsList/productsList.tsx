@@ -42,5 +42,7 @@ const StyledMessage = tw.div`
 py-10
 font-humanist
 font-bold
+text-center
+text-lg
 `;
 export default ProductsList;

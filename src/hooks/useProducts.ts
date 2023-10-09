@@ -57,7 +57,12 @@ export const useProducts = (productId?: number) => {
       const foundByTerm = totalPaged.filter((el) =>
         isMatchTerm(el, searchTerm)
       );
-      setFiltered(foundByTerm);
+      console.log(foundByTerm, "ffff");
+      const sliced =
+        foundByTerm.length <= itemsPerPage
+          ? foundByTerm
+          : foundByTerm.slice(from, offset);
+      setFiltered(sliced);
       if (foundByTerm.length < itemsPerPage) setPage({ page: 1 });
       if (foundByTerm.length !== res.length)
         setTotal({ total: foundByTerm.length });

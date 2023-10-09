@@ -12,7 +12,7 @@ const HomePage: FC = () => {
   };
   return (
     <StyledHome>
-      <Heading title={"Test App"} size="text-5xl" />
+      <Heading title={"Test App"} classes="text-5xl" />
       <Button title={"WELCOME"} onClick={onEnter} />
     </StyledHome>
   );
