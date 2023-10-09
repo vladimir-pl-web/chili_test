@@ -4,7 +4,9 @@ import { Endpoints } from "./endpoints";
 import { AxiosResponse } from "axios";
 
 class ProductServices {
-  async getProducts(): Promise<AxiosResponse<{ products: IProduct[] }>> {
+  async getProducts(): Promise<AxiosResponse<{
+    [x: string]: unknown; products: IProduct[] 
+}>> {
     const data = await instance({
       url: `${Endpoints.Products}`,
       method: "GET",
