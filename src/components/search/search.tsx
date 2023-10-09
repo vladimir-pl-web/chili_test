@@ -1,14 +1,23 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useState, useEffect } from "react";
 import { useProducts } from "src/hooks/useProducts";
 import tw from "tailwind-styled-components";
 
 const Search: FC = () => {
   const [text, setText] = useState<string>("");
   const { setTerm } = useProducts();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTerm({ searchTerm: text });
+      return () => clearTimeout(timer);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [setTerm, text]);
+
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
     setText(value);
-    setTerm({ searchTerm: text });
   };
   return (
     <StyledSearch

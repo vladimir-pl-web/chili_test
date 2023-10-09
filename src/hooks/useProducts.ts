@@ -35,8 +35,10 @@ export const useProducts = (productId?: number) => {
 
   useEffect(() => {
     //mocked pagination. It seems https://run.mocky.io doesn't provide query params as ?page=
-    const from = page * itemsPerPage;
+
+    const from = (page > 0 ? page - 1 : 0) * itemsPerPage;
     const offset = from + itemsPerPage <= total ? from + itemsPerPage : total;
+    console.log(from, offset, page);
     if (isSuccess) {
       setTotal({ total: res.length });
       setTotalPagedProducts(res);
@@ -57,7 +59,6 @@ export const useProducts = (productId?: number) => {
       const foundByTerm = totalPaged.filter((el) =>
         isMatchTerm(el, searchTerm)
       );
-      console.log(foundByTerm, "ffff");
       const sliced =
         foundByTerm.length <= itemsPerPage
           ? foundByTerm

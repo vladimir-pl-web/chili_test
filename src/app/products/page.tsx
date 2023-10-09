@@ -1,4 +1,4 @@
-import Products from "../api/services";
+import Products from "src/api/services";
 import ProductsPage from "src/components/screens/productsPage/productsPage";
 
 export const revalidate = 3600;
@@ -16,7 +16,6 @@ export const getProducts = async () => {
   }
 };
 export default async function ProductsGrid() {
-  //const res = await getProducts()
   return (
     <div>
       <ProductsPage />

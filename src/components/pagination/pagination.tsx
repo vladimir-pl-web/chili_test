@@ -1,30 +1,25 @@
-import ReactPaginate from "react-paginate";
-import classes from "./pagination.module.scss";
-import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
+"use client";
 import { FC } from "react";
 import { IPagination } from "./types";
+import { Pagination as Pages } from "@nextui-org/react";
 
 const Pagination: FC<IPagination> = ({ onChange, paginationLength, page }) => {
-  const onPageChange = (selectedItem: { selected: number }) => {
-    onChange({ page: selectedItem.selected });
+  const onPageChange = (selectedItem: number) => {
+    console.log(selectedItem, "ddddd");
+    onChange({ page: selectedItem });
   };
 
   return (
-    <div className={classes.pagination}>
-      <ReactPaginate
-        className={classes.paginate}
-        pageCount={Math.ceil(paginationLength)}
-        breakLabel="..."
-        pageClassName={classes.page}
-        nextClassName={classes.arrow}
-        previousClassName={classes.arrow}
-        activeClassName={classes.active}
-        onPageChange={onPageChange}
-        previousLabel={<HiArrowSmLeft />}
-        nextLabel={<HiArrowSmRight />}
-        initialPage={0}
-        pageRangeDisplayed={1}
-        marginPagesDisplayed={1}
+    <div className="mt-24 flex justify-center">
+      <Pages
+        color="success"
+        variant="faded"
+        boundaries={1}
+        siblings={1}
+        showShadow={true}
+        total={paginationLength + 1}
+        initialPage={1}
+        onChange={(e) => onPageChange(e)}
       />
     </div>
   );
