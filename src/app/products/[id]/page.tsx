@@ -1,5 +1,4 @@
-import { FC } from "react";
-import { IProductPage } from "./types";
+import ProductInfo from "src/components/product/product";
 import Products from "src/api/services";
 
 export async function generateStaticParams() {
@@ -7,8 +6,12 @@ export async function generateStaticParams() {
   return products.map((product) => ({ id: String(product.id) }));
 }
 
-const Product: FC<IProductPage> = ({ params }) => {
-  return <div>Product{params.id}</div>;
-};
+export async function Product() {
+  return (
+    <>
+      <ProductInfo />
+    </>
+  );
+}
 
 export default Product;
