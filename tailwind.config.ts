@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 const colors = {
   "green-primary": "#61B15A",
   "green-dark": "#224B0C",
-  "green-secondary": "#ADCE74",
+  "green-secondary": "#00838d",
   "yellow-light": "#FFF76A",
   "light-brown": "#FFCE89",
   "button-text": "#AC4425",

@@ -1,6 +1,5 @@
-import { notFound } from "next/navigation";
 import Products from "../api/services";
-import ProductsList from "src/components/productsList/productsList";
+import ProductsPage from "src/components/screens/productsPage/productsPage";
 
 export const revalidate = 3600;
 
@@ -10,17 +9,17 @@ export const getProducts = async () => {
     if (!data) {
       throw new Error("Server error. Try again later");
     }
-    return data.products;
+
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
-export default async function ProductsPage() {
-  const result = await getProducts();
-  if (!result) return notFound();
+export default async function ProductsGrid() {
+  //const res = await getProducts()
   return (
     <div>
-      <ProductsList products={result} />
+      <ProductsPage />
     </div>
   );
 }

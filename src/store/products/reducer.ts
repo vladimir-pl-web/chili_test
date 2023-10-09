@@ -3,7 +3,7 @@ import { IInitialState, IPage, ISearch, ITotal } from "src/types/products";
 
 const initialState: IInitialState = {
   page: 1,
-  itemsPerPage: 4,
+  itemsPerPage: 6,
   searchTerm: null,
   total: 0,
 };

@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import Button from "src/components/button/button";
-import Heading from "src/components/header/header";
+import Heading from "src/components/title/title";
 import tw from "tailwind-styled-components";
 
 const HomePage: FC = () => {

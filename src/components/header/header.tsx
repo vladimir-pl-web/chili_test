@@ -1,17 +1,20 @@
 import { FC } from "react";
 import tw from "tailwind-styled-components";
 
-const Heading: FC<{ title: string; size: string }> = ({ title, size }) => {
-  return <StyledHeader $size={size}>{title}</StyledHeader>;
+const Header: FC = () => {
+  return <StyledHeader>I am header</StyledHeader>;
 };
 
-interface HeaderProps {
-  $size: string;
-}
-
-const StyledHeader = tw.h1<HeaderProps>`
-${(p) => p.$size}
-font-didot
-font-bold
+const StyledHeader = tw.header`
+fixed
+z-10
+top-0
+left-0
+right-0
+bg-green-dark
+py-8
+px-8 
+md:px-24
+shadow-md 
 `;
-export default Heading;
+export default Header;

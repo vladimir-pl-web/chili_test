@@ -1,34 +1,46 @@
-"use client";
-import { FC } from "react";
-import { IProducts } from "./types";
-import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "src/app/products/page";
-import { useProducts } from "src/hooks/useProducts";
+import { FC, useMemo } from "react";
+import { IProduct } from "src/types/products";
+import tw from "tailwind-styled-components";
+import ProductItem from "../productItem/item";
+import Title from "../title/title";
 
-const ProductsList: FC<IProducts> = ({ products }) => {
-  const { data, isFetching, isLoading, refetch, isSuccess, isError } = useQuery(
-    ["get products"],
-    () => getProducts(),
-    {
-      select: (data) => data,
-      initialData: products,
-      enabled: true,
-      staleTime: Infinity,
-    }
+const ProductsList: FC<{ products: IProduct[] }> = ({ products }) => {
+  const list = useMemo(() => {
+    return products.map((product) => (
+      <ProductItem key={product.id} product={product} />
+    ));
+  }, [products]);
+
+  return (
+    <div className="pt-36">
+      <Title
+        title={"Try Our Best Goodies"}
+        classes={"text-5xl text-center pb-8"}
+      />
+      {products.length ? (
+        <StyledList>{list}</StyledList>
+      ) : (
+        <StyledMessage>No Products Found</StyledMessage>
+      )}
+    </div>
   );
-  const {
-    setPage,
-    setTerm,
-    setTotal,
-    page,
-    total,
-    searchTerm,
-    filtered,
-    currentProduct,
-  } = useProducts();
-
-  console.log(filtered, page, total, "filtered");
-  return <div>Product</div>;
 };
 
+const StyledList = tw.ul`
+grid
+gap-5
+justify-items-center
+md:grid-cols-2
+xl:grid-cols-3
+grid-cols-1
+pt-4
+mx-8 
+ld:mx-24
+
+`;
+const StyledMessage = tw.div`
+py-10
+font-humanist
+font-bold
+`;
 export default ProductsList;
