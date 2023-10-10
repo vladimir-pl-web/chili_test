@@ -7,7 +7,7 @@ import Loader from "../loader/loader";
 const ProductInfo = () => {
   const params = useParams();
   const { currentProduct } = useProducts(+params.id);
-  console.log(currentProduct, "current");
+
   return (
     <>
       {currentProduct ? (

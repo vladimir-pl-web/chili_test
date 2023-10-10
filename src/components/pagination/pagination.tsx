@@ -5,7 +5,7 @@ import { Pagination as Pages } from "@nextui-org/react";
 
 const Pagination: FC<IPagination> = ({ onChange, paginationLength, page }) => {
   const onPageChange = (selectedItem: number) => {
-    console.log(selectedItem, "ddddd");
+
     onChange({ page: selectedItem });
   };
 

@@ -38,7 +38,7 @@ export const useProducts = (productId?: number) => {
 
     const from = (page > 0 ? page - 1 : 0) * itemsPerPage;
     const offset = from + itemsPerPage <= total ? from + itemsPerPage : total;
-    console.log(from, offset, page);
+
     if (isSuccess) {
       setTotal({ total: res.length });
       setTotalPagedProducts(res);
